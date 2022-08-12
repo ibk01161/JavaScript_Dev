@@ -204,8 +204,16 @@ function(parameter, ...restParameter) {
 - '클로저' 란 함수가 정의될 때의 렉시컬 환경을 기억하는 함수를 말함
 
 
+# 045. 객체 속성 기술자 이해하기
 
+- 자바스크립트의 모든 객체 속성은 자기 자신에 대한 정보를 담고 있는 '속성 기술자(Property Descriptor)' 를 가지고 있음, 객체로 표현됨
+- Object.defineProperty를 통해 객체의 속성을 정의할 때 '속성 기술자'를 이용하여 정의할 수 있음
 
+* 속성 기술자의 속성
+- value : 값
+- enumerable : for...in 루프나 Object, Keys 메소드같이 속성을 나열할 때 나열 가능 여부를 정의, false일 경우 나열되지 않음
+- writable : 값을 변경할 수 있는 여부를 정의, false일 경우 값이 변하지 않음
+- configurable : 속성 기술자를 변경할 수 있는 여부를 정의, false일 경우 속성 기술자를 다시 변경할 수 없음
 
 
 
