@@ -1,4 +1,4 @@
-// 069. 문자열 자르기 ② (substring)
+// 문자열 자르기 ② (substring)
 const sentence = 'This will be the end of Wakanda';
 
 console.log(sentence.substring(13));                // 두 번째 인자 없이 첫 번재 인자에만 13 대입, 13번째 인덱스부터 마지막까지의 문자열 반환
