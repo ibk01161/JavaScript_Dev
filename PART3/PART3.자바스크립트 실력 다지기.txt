@@ -641,6 +641,32 @@
 # 130. Map 객체 순환하기 2
 
 
+# 131. Set 객체의 값 추가/삭제/확인하기 (add, delete, has)
+
+- Set은 ES6부터 표준으로 추가된 값의 집합체(Collection) 임, 값으로만 이루어진 데이터 구조를 가짐, 객체 안에서 중복값은 허용하지 X
+
+
+# 132. Set 객체의 크기 확인하기 (size)
+
+- Set 객체의 size 메소드를 통해 간단하게 값의 개수를 확인할 수 있음
+
+
+# 133. Set 객체로 Array 중복 요소 없애기
+
+- Set 객체의 큰 특징 중 하나는 중복 값을 허용하지 않는다는 것, Set 객체의 특징을 활용하여 배열에서 중복값을 제거할 수 있음
+
+
+# 134. Set 객체 값 나열하기 (keys, values, entries)
+
+- Set 객체는 값의 집합이기 때문에, 키(Key)를 모으는 것은 의미 X, Set객체는 keys 메소드와 values 메소드의 동작 방식을 동일하게 처리
+- values 메소드를 호출하면 Set 객체의 값을 모아 SetIterator 객체로 반환, 즉 SetIterator {'one', 'two', 'three'} 이 반환됨
+- Set 객체는 값만 처리하기 때문에, 키 대신 값을 전달함 (entries())
+
+
+# 135. Set 객체 순환하기 (for-of, foreach)
+
+- Set 객체에서 for-of를 통해 순환하는 방법은 Map 객체와 유사함, 다만 반복문을 통해 전달되는 값에서 차이가 있음
+- keys, values, entries 메소드는 SetIterator 객체를 반환, 즉, 반복 가능한 객체이므로 for...of 를 통해 각 메소드를 결과값을 순환함
 
 
 
