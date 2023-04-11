@@ -30,30 +30,14 @@ const execute = async function() {
     try {
         let v = await doJob('work', harin);
         console.log(v.result);
-        // 여기서부터
+        v = await doJob('study', harin);
+        console.log(v.result);
+        v = await doJob('work', harin);
+        console.log(v.result);
+        v = await doJob('study', harin);
     } catch (e) {
         console.log(e);
     }
 }
 
-doJob('work', harin)                    // work 이름의 일을 수행하는 약속을 생성
-    .then(v => {                        // 전달된 인자의 스테미나가 100이기 때문에 성공적으로 이행되고 then 메소드 전달한 콜백 함수에 차감될 스테미나와 결과값이 전달됨
-        console.log(v.result);
-        harin.stamina -= v.loss;
-        // 추가
-        console.log(harin.stamina);
-        return doJob('study', harin);   // then 메소드에 전달한 콜백 함수에서 study 이름의 일을 수행하는 약속을 반환함
-    })                                  // 이렇게 반환된 약속이 이행되면 다음에 연결된 then 메소드의 콜백 함수에서 앞서 반환한 약속의 이행 결과가 전달됨
-    .then(v => {
-        console.log(v.result);          // 공부하는 약속에 이행된 결과를 콘솔에 출력하고 스테미나 차감
-        harin.stamina -= v.loss;        // 그리고 다시 work 이름의 일을 수행하는 약속을 생성하여 반환
-        // 추가
-        console.log(harin.stamina);
-        return doJob('work', harin);
-    })
-    .then(v => {                        // 이전 then 메소드 콜백 함수에서 반환된 work 이름의 일을 수행하는 약속의 이행 결과를 인자로 전달 받음
-        console.log(v.result);          // 하지만 이전까지의 수행된 일들 때문에 스테미나가 50이하까지 차감되어 이 콜백 함수는 호출되지 않음 (이전 약속이 거부되었기 때문)
-        harin.stamina -= v.loss;
-        return doJob('study', harin);
-    })
-    .catch(e => console.error(e));      // 앞에 이어지는 약속들의 연결에서 에러가 발생하게 되면 catch 메소드의 콜백 함수가 호출됨 (45라인의 then 메소드의 전달된 콜백 함수에서 반환한 약속이 거부)
+execute();
